@@ -44,6 +44,7 @@ function readFile(filedata) {
 	//document.getElementsByTagName("midi-visualizer")[0].style.display = "none";
 	document.getElementById("play/pause button").hidden = false;
 	document.getElementById("stop button").hidden = false;
+	fileSelector.value = "";
 	if (gcompiler.openFile(filedata)) {
 		updateAudio()
 		if (gcompiler.fileExisits("icon.png")) {
