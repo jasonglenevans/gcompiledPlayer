@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>GCOMPILED File Music Player</title>
+		<link rel="icon" href="favicon.png">
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	
+	<body ondragstart="return false;" ondrop="return false;" onselectstart="return false;">
+		<!--Import The gcompiled Loader-->
+		<script src="loader.js"></script>
+		<div id="top">
+			<button class="button1" onclick="fileSelector.click()">Load GCOMPILED</button>
+			<button class="button1" onclick="toggleSf(this)">Toggle Soundfont (Enabled)</button>
+			<p style="float:right;" id="fileName"></p>
+		</div>
+		<div id="bottom">
+		<button class="button1" id="play/pause button" onclick="playAudio(this)" style="width:100px;">
+			<img id="play/pause icon" src="images/player/play.png" width=70 height=70>
+		</button>
+		<button class="button1" id="stop button" onclick="stopAudio()" style="width:100px;">
+			<img src="images/player/stop.png" width=70 height=70>
+		</button>
+		<button class="button1" onclick="last()" style="width:100px;">
+			<img src="images/player/last.png" width=70 height=70>
+		</button>
+		<button class="button1" onclick="next()" style="width:100px;">
+			<img src="images/player/next.png" width=70 height=70>
+		</button>
+		<progress id="playProgress" value="0" max="100" style="float:right;"> 100% </progress>
+		</div>
+		<img class="logo" src="favicon.png" height=300></img>
+		<!--Player Scripts-->
+		<script src="synth.js"></script>
+		<script src="player.js"></script>
+		<script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.4.0"></script>
+<!--<midi-visualizer
+  style="display:none;"
+  id="visulizer"
+  src="https://magenta.github.io/magenta-js/music/demos/melody.mid">
+</midi-visualizer>-->
+		<midi-player visualizer="#section3 midi-visualizer" style="display:none; position:fixed; top:45%; left:0;" 
+  src="https://magenta.github.io/magenta-js/music/demos/melody.mid" sound-font visualizer="#visulizer">
+  </midi-player>
+	</body>
+</html>
