@@ -44,7 +44,7 @@ function readFile(filedata) {
 	//document.getElementsByTagName("midi-visualizer")[0].style.display = "none";
 	document.getElementById("play/pause button").hidden = false;
 	document.getElementById("stop button").hidden = false;
-	fileSelector.value = null;
+	fileSelector.innerHTML = "";
 	if (gcompiler.openFile(filedata)) {
 		updateAudio()
 		if (gcompiler.fileExisits("icon.png")) {
@@ -125,7 +125,7 @@ function checkPlaying() {
 	} else {
 		document.getElementById('play/pause icon').src = "images/player/pause.png";
 	}
-	var progress = Math.round((audioPlayer.currentTime/audioPlayer.duration) * 100);
+	var progress = ((audioPlayer.currentTime/audioPlayer.duration) * 100);
 	var progressBar = document.getElementById("playProgress")
 	try{progressBar.value = progress;}catch(e){}
 	try{BrowserWindow.setProgressBar(progressBar)}catch(e){}
